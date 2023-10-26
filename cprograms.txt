@@ -1,0 +1,105 @@
+#include <stdio.h>
+
+int main() {
+
+  int n, reverse = 0, remainder;
+
+  printf("Enter an integer: ");
+  scanf("%d", &n);
+
+  while (n != 0) {
+    remainder = n % 10;
+    reverse = reverse * 10 + remainder;
+    n /= 10;
+  }
+
+  printf("Reversed number = %d", reverse);
+
+  return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+
+int main() {
+
+  char op;
+  double first, second;
+  printf("Enter an operator (+, -, *, /): ");
+  scanf("%c", &op);
+  printf("Enter two operands: ");
+  scanf("%lf %lf", &first, &second);
+
+  switch (op) {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf", first, second, first + second);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf", first, second, first - second);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf", first, second, first * second);
+      break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf", first, second, first / second);
+      break;
+    // operator doesn't match any case constant
+    default:
+      printf("Error! operator is not correct");
+  }
+
+  return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+int main() {
+  int n;
+  double arr[100];
+  printf("Enter the number of elements (1 to 100): ");
+  scanf("%d", &n);
+
+  for (int i = 0; i < n; ++i) {
+    printf("Enter number%d: ", i + 1);
+    scanf("%lf", &arr[i]);
+  }
+
+  // storing the largest number to arr[0]
+  for (int i = 1; i < n; ++i) {
+    if (arr[0] < arr[i]) {
+      arr[0] = arr[i];
+    }
+  }
+
+  printf("Largest element = %.2lf", arr[0]);
+
+  return 0;
+}
+
+
+
+
+#include <stdio.h>
+int main() {
+  long long n;
+  int count = 0;
+  printf("Enter an integer: ");
+  scanf("%lld", &n);
+ 
+  // iterate at least once, then until n becomes 0
+  // remove last digit from n in each iteration
+  // increase count by 1 in each iteration
+  do {
+    n /= 10;
+    ++count;
+  } while (n != 0);
+
+  printf("Number of digits: %d", count);
+}
