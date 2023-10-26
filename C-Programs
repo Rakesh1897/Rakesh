@@ -1,0 +1,210 @@
+1. C Program to Reverse a Number.
+
+#include <stdio.h>
+
+int main() {
+
+  int n, reverse = 0, remainder;
+
+  printf("Enter an integer: ");
+  scanf("%d", &n);
+
+  while (n != 0) {
+    remainder = n % 10;
+    reverse = reverse * 10 + remainder;
+    n /= 10;
+  }
+
+  printf("Reversed number = %d", reverse);
+
+  return 0;
+}
+
+
+
+
+2. C Program to Make a Simple Calculator Using switch...case.
+
+#include <stdio.h>
+
+int main() {
+
+  char op;
+  double first, second;
+  printf("Enter an operator (+, -, *, /): ");
+  scanf("%c", &op);
+  printf("Enter two operands: ");
+  scanf("%lf %lf", &first, &second);
+
+  switch (op) {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf", first, second, first + second);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf", first, second, first - second);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf", first, second, first * second);
+      break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf", first, second, first / second);
+      break;
+    // operator doesn't match any case constant
+    default:
+      printf("Error! operator is not correct");
+  }
+
+  return 0;
+}
+
+
+
+
+
+3. C Program to Find Largest Element in an Array.
+
+#include <stdio.h>
+int main() {
+  int n;
+  double arr[100];
+  printf("Enter the number of elements (1 to 100): ");
+  scanf("%d", &n);
+
+  for (int i = 0; i < n; ++i) {
+    printf("Enter number%d: ", i + 1);
+    scanf("%lf", &arr[i]);
+  }
+
+  // storing the largest number to arr[0]
+  for (int i = 1; i < n; ++i) {
+    if (arr[0] < arr[i]) {
+      arr[0] = arr[i];
+    }
+  }
+
+  printf("Largest element = %.2lf", arr[0]);
+
+  return 0;
+}
+
+
+
+4. C Program to Count Number of Digits in an Integer.
+
+#include <stdio.h>
+int main() {
+  long long n;
+  int count = 0;
+  printf("Enter an integer: ");
+  scanf("%lld", &n);
+ 
+  // iterate at least once, then until n becomes 0
+  // remove last digit from n in each iteration
+  // increase count by 1 in each iteration
+  do {
+    n /= 10;
+    ++count;
+  } while (n != 0);
+
+  printf("Number of digits: %d", count);
+}
+
+
+5. C Program to convert Fahrenheit to Celsius.
+
+#include <stdio.h> 
+
+// Function to convert Degree 
+// Fahrenheit to Degree Celsius 
+float fahrenheit_to_celsius(float f) 
+{ 
+	return ((f - 32.0) * 5.0 / 9.0); 
+} 
+
+// Driver code 
+int main() 
+{ 
+	float f = 40; 
+
+	// Passing parameter to function 
+	printf("Temperature in Degree Celsius : %0.2f", 
+		fahrenheit_to_celsius(f)); 
+	return 0; 
+}
+
+
+
+6. C program to print initials of a name. 
+
+# include <stdio.h> 
+# include <string.h> 
+# include <ctype.h> 
+
+// Function declaration 
+void getInitials(char* name); 
+
+// Driver code 
+int main(void) 
+{	 
+	// Declare an character array for 
+	// entering names assuming the 
+	// name doesn't exceed 31 characters 
+	char name[50] = "Geeks for Geeks"; 
+	
+	printf("Your initials are: "); 
+	
+	// getInitials function prints 
+	// the initials of the given name 
+	getInitials(name);	 
+} 
+
+void getInitials(char* name) 
+{	 
+	int i = 0; 
+	
+	if(strlen(name) > 0 && 
+		isalpha(name[0])) 
+	printf("%c ", toupper(name[0])); 
+
+	
+	while(name[i] != '\0') 
+	{ 
+	if(isspace(name[i]) != 0) 
+	{ 
+		while(isspace(name[i]) && 
+			i <= strlen(name)) 
+		{ 
+		i++ ;			 
+		} 
+		printf("%c ", toupper(name[i])); 
+	} 
+	i++; 
+	} 
+printf("\n"); 
+}
+
+
+7. C program to find the sum of n natural numbers using recursion.
+
+#include <stdio.h>
+
+// Returns the sum of first n
+// natural numbers
+int recSum(int n)
+{
+// Base condition
+	if (n <= 1)
+		return n;
+
+// Recursive call
+	return n + recSum(n - 1);
+}
+
+// Driver code
+int main()
+{
+	int n = 10;
+	printf("Sum = %d ", recSum(n));
+	return 0;
+}
+
